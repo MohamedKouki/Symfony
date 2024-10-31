@@ -1,0 +1,14 @@
+{# {{form(authorForm)}} #}
+
+{{ form_start(authorForm) }}
+<table>
+<tr>
+<td>{{ form_label(authorForm.username,"Your name") }}</td>
+<td>{{ form_widget(authorForm.username) }}</td>
+</tr>
+<tr>
+<td>{{ form_label(authorForm.email,"Your email") }}</td>
+<td>{{ form_widget(authorForm.email) }}</td>
+</tr>
+</table>
+{{ form_end(authorForm) }}

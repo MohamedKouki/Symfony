@@ -1,0 +1,25 @@
+{# {{ dump(books) }} #}
+<table border="2">
+<tr>
+<th>id</th>
+<th>title</th>
+<th>pubDate</th>
+<th>enabled</th>
+<th>author.username</th>
+<th colspan="2">Action</th>
+
+</tr>
+{% for book in books %}
+<tr>
+<td>{{book.id}}</td>
+<td>{{book.title}}</td>
+<td>{{book.pubDate | date('Y-m-d')}}</td>
+<td>{{book.enabled}}</td>
+<td>{{book.author.username}}</td>
+<td><a href="{{path('DeleteBook',{'id':book.id})}}">Supprimer</a></td>
+<td><a href="{{path('edit_Book',{'id':book.id})}}">Modifier</a></td>
+</tr>
+{% else %}
+No books Found
+{% endfor %}
+</table>

@@ -1,0 +1,21 @@
+{# atelier3 #}
+{# <h1>c'est la page de l'auteur <font color ="red">{{author.username}}</font> </h1>
+<p>Son email est: {{author.email}} <br>
+nb_book :{{author.nb_books}}</p>
+<img src="{{author.picture}}" > #}
+
+{# atelier4 #}
+{{ dump(books) }}
+{{ dump(author) }}
+<p>{{author.username}} have books :</p>   
+<table border="2">
+<tr><th>Id</th><th>Title</th><th>date</th><th>Enabled</th></tr>
+{% for book in books %}
+<tr>
+<td>{{book.id}}</td>
+<td>{{book.title}}</td>
+<td>{{book.pubDate | date('Y-m-d')}}</td>
+<td>{{book.enabled}}</td>
+</tr>
+{% endfor %}
+</table>

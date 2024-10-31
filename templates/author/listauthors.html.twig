@@ -1,0 +1,44 @@
+{# atelier3 #}
+{# {{ dump(authors) }} #}
+
+{# <table border="1">
+{% set total = 0 %}
+{% for author in authors %}
+ <tr>
+    <td>{{author.id}}</td>
+    <td>{{author.username | upper}}</td> #}
+    {# <td><img src="{{author.picture}}" width="100px"></td> #}
+     {# <td><img src="{{asset(author.picture)}}" width="100px"></td> 
+     
+    <td>{{author.email}}</td>
+    <td>{{author.nb_books}}</td>
+    <td><a href="/showauthor/{{author.id}}"> détails</a></td>
+    {% set total = total + author.nb_books %}
+ </tr>    #}
+ {# {% else %}
+ No author Found !! #}
+{# {% endfor %}
+{% if authors is empty %}
+    No author Found
+{% endif %}
+</table>
+le nombre total des livres est {{total}} pour un total les auteurs {{ authors|length }} #}
+
+
+{# atelier4 #}
+{# {{ dump(authors) }} #}
+<table border="1">
+{% for author in authors %}
+   <tr>
+    <td>{{author.id}}</td>
+    <td>{{author.username}}</td>
+    <td>{{author.email}}</td>
+    <td><a href="{{path('showAuth',{'id':author.id})}}">Details</a></td>
+    <td><a href="{{path('DeleteAuth',{'id':author.id})}}">Supprimer</a></td>
+    <td><a href="{{path('edit_Author',{'id':author.id})}}">Modifier</a></td>
+   <td><a href="{{path('Show_book',{'id':author.id})}}">books</a></td>
+
+   </tr> 
+{% endfor %}
+</table>
+{# {{form(authorForm)}} #}
